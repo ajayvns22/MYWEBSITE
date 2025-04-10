@@ -19,7 +19,6 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
       color: #fff;
-      display: flex;
     }
 
     .sidebar-toggle {
@@ -31,7 +30,7 @@
       padding: 10px 15px;
       border: none;
       border-radius: 5px;
-      z-index: 1000;
+      z-index: 1001;
       cursor: pointer;
     }
 
@@ -40,11 +39,11 @@
       background-color: white;
       color: black;
       height: 100vh;
-      padding-top: 60px; /* Adjusted to push nav below toggle */
+      padding-top: 60px;
       position: fixed;
       left: -250px;
       top: 0;
-      z-index: 999;
+      z-index: 1000;
       transition: left 0.3s ease;
     }
 
@@ -68,7 +67,7 @@
     }
 
     .main-content {
-      margin-left: 0;
+      padding-top: 60px;
       width: 100%;
       transition: margin-left 0.3s ease;
     }
@@ -78,9 +77,8 @@
       padding: 20px;
       text-align: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: relative;
+      z-index: 999;
     }
 
     .hero-text {
@@ -91,6 +89,7 @@
       padding: 10px 20px;
       background-color: rgba(0,0,0,0.5);
       border-radius: 10px;
+      white-space: nowrap;
     }
 
     section {
@@ -139,6 +138,21 @@
       color: white;
       font-weight: bold;
       cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .hero-text {
+        font-size: 1.5rem;
+      }
+
+      .sidebar-toggle {
+        font-size: 1.2rem;
+        padding: 8px 12px;
+      }
+
+      .sidebar nav a {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
