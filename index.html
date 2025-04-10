@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>POOJA BATTRY</title>
   <style>
     * {
@@ -35,7 +35,7 @@
       top: 10px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: bold;
       color: #fff;
     }
@@ -45,23 +45,30 @@
       visibility: hidden;
     }
 
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     nav a {
-      margin: 0 15px;
+      margin: 5px 10px;
       text-decoration: none;
       color: #f8f8f8;
       font-weight: bold;
+      font-size: 1rem;
     }
 
     section {
-      padding: 40px;
+      padding: 20px;
       text-align: left;
       background-color: rgba(0, 0, 0, 0.5);
-      margin: 20px;
+      margin: 10px;
       border-radius: 10px;
     }
 
     section img {
-      width: 60%;
+      width: 100%;
       max-width: 400px;
       border-radius: 10px;
       margin-top: 20px;
@@ -70,15 +77,15 @@
 
     footer {
       background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px;
+      padding: 10px;
       text-align: center;
-      font-size: 0.9em;
+      font-size: 0.8em;
       color: #ddd;
     }
 
     .contact-links a {
-      display: inline-block;
-      margin: 10px;
+      display: block;
+      margin: 8px 0;
       color: #fff;
       text-decoration: none;
       font-weight: bold;
@@ -86,6 +93,17 @@
 
     .contact-links a:hover {
       text-decoration: underline;
+    }
+
+    @media (min-width: 768px) {
+      nav a {
+        font-size: 1.2rem;
+        margin: 10px 15px;
+      }
+
+      header::before {
+        font-size: 2.5rem;
+      }
     }
   </style>
 </head>
@@ -112,7 +130,7 @@
   </section>
 
   <section id="blog">
-    <h2> Blog</h2>
+    <h2>Our Blog</h2>
     <p>Stay updated with battery maintenance tips, new product launches, and energy solutions.</p>
     <div style="text-align: left; max-width: 800px; margin: 0 auto;">
       <h3>🔋 How to Choose the Right Inverter Battery</h3>
