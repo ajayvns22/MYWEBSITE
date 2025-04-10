@@ -19,6 +19,58 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
       color: #fff;
+      display: flex;
+    }
+
+    .sidebar-toggle {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      z-index: 1000;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: white;
+      color: black;
+      height: 100vh;
+      padding-top: 60px; /* Adjusted to push nav below toggle */
+      position: fixed;
+      left: -250px;
+      top: 0;
+      z-index: 999;
+      transition: left 0.3s ease;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .sidebar nav {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 20px;
+    }
+
+    .sidebar nav a {
+      color: black;
+      text-decoration: none;
+      margin: 15px 0;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .main-content {
+      margin-left: 0;
+      width: 100%;
+      transition: margin-left 0.3s ease;
     }
 
     header {
@@ -26,7 +78,9 @@
       padding: 20px;
       text-align: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      position: relative;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .hero-text {
@@ -37,79 +91,6 @@
       padding: 10px 20px;
       background-color: rgba(0,0,0,0.5);
       border-radius: 10px;
-    }
-
-    .menu-toggle,
-    .menu-toggle-left,
-    .category-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      position: absolute;
-      top: 25px;
-    }
-
-    .menu-toggle {
-      right: 20px;
-    }
-
-    .menu-toggle-left {
-      left: 60px;
-    }
-
-    .category-toggle {
-      left: 20px;
-    }
-
-    .menu-toggle span,
-    .menu-toggle-left span,
-    .category-toggle span {
-      height: 3px;
-      width: 25px;
-      background: white;
-      margin: 4px 0;
-      transition: all 0.3s ease;
-    }
-
-    #categoryMenu {
-      display: none;
-      position: absolute;
-      top: 70px;
-      left: 10px;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 10px;
-      border-radius: 5px;
-      z-index: 100;
-    }
-
-    #categoryMenu a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      margin: 5px 0;
-    }
-
-    nav {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    nav.show {
-      display: flex;
-    }
-
-    nav a {
-      margin: 10px;
-      text-decoration: none;
-      color: #f8f8f8;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #ffd700;
     }
 
     section {
@@ -159,124 +140,85 @@
       font-weight: bold;
       cursor: pointer;
     }
-
-    @media (min-width: 768px) {
-      .hero-text {
-        font-size: 2.5rem;
-      }
-
-      .menu-toggle,
-      .menu-toggle-left,
-      .category-toggle {
-        display: none;
-      }
-
-      nav {
-        display: flex !important;
-        flex-direction: row;
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .menu-toggle,
-      .menu-toggle-left,
-      .category-toggle {
-        display: flex;
-      }
-    }
   </style>
 </head>
 <body>
+  <button class="sidebar-toggle" onclick="toggleSidebar()">☰ Menu</button>
 
-  <header>
-    <div class="hero-text">Welcome to POOJA BATTRY</div>
-    <div class="category-toggle" onclick="toggleCategoryMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div class="menu-toggle-left" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav id="mobileMenu">
+  <div class="sidebar" id="sidebar">
+    <nav>
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#blog">Blog</a>
       <a href="#contact">Contact</a>
-    </nav>
-    <div id="categoryMenu">
       <a href="#batteries">Batteries</a>
       <a href="#services">Services</a>
       <a href="#faq">FAQ</a>
-    </div>
-  </header>
+    </nav>
+  </div>
 
-  <section id="home">
-    <h2>Home</h2>
-    <p>This is the home section of your website.</p>
-  </section>
+  <div class="main-content">
+    <header>
+      <div class="hero-text">Welcome to POOJA BATTRY</div>
+    </header>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>Welcome to POOJA BATTRY — your trusted source for powerful and reliable inverter batteries.</p>
-  </section>
+    <section id="home">
+      <h2>Home</h2>
+      <p>This is the home section of your website.</p>
+    </section>
 
-  <section id="blog">
-    <h2>Our Blog</h2>
-    <p>Stay updated with battery maintenance tips, new product launches, and energy solutions.</p>
-    <div style="text-align: left; max-width: 800px; margin: 0 auto;">
-      <h3>🔋 How to Choose the Right Inverter Battery</h3>
-      <p>Choosing the right battery depends on your power requirement, inverter compatibility, and budget. At my shop, we help you make informed decisions with our expert advice.</p>
+    <section id="about">
+      <h2>About Us</h2>
+      <p>Welcome to POOJA BATTRY — your trusted source for powerful and reliable inverter batteries.</p>
+    </section>
 
-      <h3>⚙️ Tips for Long Battery Life</h3>
-      <ul>
-        <li>Use the battery regularly and avoid deep discharge.</li>
-        <li>Top-up distilled water regularly in tubular batteries.</li>
-        <li>Ensure proper ventilation around the inverter system.</li>
-      </ul>
+    <section id="blog">
+      <h2>Our Blog</h2>
+      <p>Stay updated with battery maintenance tips, new product launches, and energy solutions.</p>
+      <div style="text-align: left; max-width: 800px; margin: 0 auto;">
+        <h3>🔋 How to Choose the Right Inverter Battery</h3>
+        <p>Choosing the right battery depends on your power requirement, inverter compatibility, and budget. At my shop, we help you make informed decisions with our expert advice.</p>
 
-      <h3>🌿 Eco-Friendly Disposal</h3>
-      <p>Did you know old batteries can be recycled? Bring your used batteries to us, and we’ll handle safe, eco-friendly disposal.</p>
-    </div>
-  </section>
+        <h3>⚙️ Tips for Long Battery Life</h3>
+        <ul>
+          <li>Use the battery regularly and avoid deep discharge.</li>
+          <li>Top-up distilled water regularly in tubular batteries.</li>
+          <li>Ensure proper ventilation around the inverter system.</li>
+        </ul>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Need help or have a question? Reach out at pooja@batterycare.com</p>
-    <div class="contact-links">
-      <p>📞 Call us: <a href="tel:+917080037917">+91 7080037917</a></p>
-      <p>📱 WhatsApp: <a href="https://wa.me/917080037917" target="_blank">Chat on WhatsApp</a></p>
-      <p>📸 Instagram: <a href="https://www.instagram.com/poojabattry" target="_blank">@poojabattry</a></p>
-      <p>📍 Location: <a href="https://maps.google.com/?q=Varanasi, Uttar Pradesh" target="_blank">Varanasi, Uttar Pradesh</a></p>
-    </div>
+        <h3>🌿 Eco-Friendly Disposal</h3>
+        <p>Did you know old batteries can be recycled? Bring your used batteries to us, and we’ll handle safe, eco-friendly disposal.</p>
+      </div>
+    </section>
 
-    <h3>Request a Callback</h3>
-    <form action="#" method="post">
-      <input type="text" placeholder="Your Name" required>
-      <input type="tel" placeholder="Your Phone Number" required>
-      <textarea placeholder="Your Message" rows="4"></textarea>
-      <button type="submit">Submit</button>
-    </form>
-  </section>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Need help or have a question? Reach out at pooja@batterycare.com</p>
+      <div class="contact-links">
+        <p>📞 Call us: <a href="tel:+917080037917">+91 7080037917</a></p>
+        <p>📱 WhatsApp: <a href="https://wa.me/917080037917" target="_blank">Chat on WhatsApp</a></p>
+        <p>📸 Instagram: <a href="https://www.instagram.com/poojabattry" target="_blank">@poojabattry</a></p>
+        <p>📍 Location: <a href="https://maps.google.com/?q=Varanasi, Uttar Pradesh" target="_blank">Varanasi, Uttar Pradesh</a></p>
+      </div>
 
-  <footer>
-    &copy; 2025 POOJA BATTRY. All rights reserved.
-  </footer>
+      <h3>Request a Callback</h3>
+      <form action="#" method="post">
+        <input type="text" placeholder="Your Name" required>
+        <input type="tel" placeholder="Your Phone Number" required>
+        <textarea placeholder="Your Message" rows="4"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <footer>
+      &copy; 2025 POOJA BATTRY. All rights reserved.
+    </footer>
+  </div>
 
   <script>
-    function toggleMenu() {
-      const nav = document.getElementById('mobileMenu');
-      nav.classList.toggle('show');
-    }
-
-    function toggleCategoryMenu() {
-      const catMenu = document.getElementById('categoryMenu');
-      catMenu.style.display = catMenu.style.display === 'block' ? 'none' : 'block';
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('show');
     }
   </script>
-
 </body>
 </html>
