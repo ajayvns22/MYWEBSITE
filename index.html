@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>POOJA BATTRY</title>
   <style>
     * {
@@ -16,6 +16,7 @@
       background-color: orange;
       background-image: url('blog-28oct21-big_46b9582c-3251-47dc-b660-234659edec5d.jpg');
       background-size: cover;
+      background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
       color: #fff;
@@ -146,10 +147,9 @@
     }
 
     .battery-gallery {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      justify-content: center;
     }
 
     .battery-item {
@@ -157,7 +157,6 @@
       padding: 15px;
       border-radius: 10px;
       text-align: center;
-      max-width: 250px;
     }
 
     .battery-item img {
@@ -184,6 +183,8 @@
     @media (max-width: 768px) {
       .hero-text {
         font-size: 1.5rem;
+        padding: 8px 12px;
+        white-space: normal;
       }
 
       .sidebar-toggle {
@@ -193,6 +194,11 @@
 
       .sidebar nav a {
         font-size: 0.9rem;
+      }
+
+      section {
+        margin: 10px 5px;
+        padding: 15px;
       }
 
       .main-content {
@@ -231,7 +237,7 @@
       </section>
 
       <section id="blog">
-        <h2> Blog</h2>
+        <h2>Blog</h2>
         <p>Stay updated with battery maintenance tips, new product launches, and energy solutions.</p>
       </section>
 
