@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     body {
@@ -22,41 +22,40 @@
     }
 
     header {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 60px 20px 20px;
+      background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(255,140,0,0.5));
+      padding: 20px;
       text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-      position: relative;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
 
-    header::before {
-      content: 'Welcome to POOJA BATTRY';
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
+    .hero-text {
       font-size: 2rem;
-      font-weight: bold;
+      font-weight: 600;
       color: #fff;
-    }
-
-    header h1 {
-      margin-top: 60px;
-      visibility: hidden;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: rgba(0,0,0,0.5);
+      border-radius: 10px;
     }
 
     nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      margin-top: 10px;
     }
 
     nav a {
-      margin: 5px 10px;
+      margin: 5px 15px;
       text-decoration: none;
       color: #f8f8f8;
       font-weight: bold;
       font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
     }
 
     section {
@@ -96,13 +95,12 @@
     }
 
     @media (min-width: 768px) {
-      nav a {
-        font-size: 1.2rem;
-        margin: 10px 15px;
+      .hero-text {
+        font-size: 2.5rem;
       }
 
-      header::before {
-        font-size: 2.5rem;
+      nav a {
+        font-size: 1.2rem;
       }
     }
   </style>
@@ -110,7 +108,7 @@
 <body>
 
   <header>
-    <h1>Welcome to POOJA BATTRY</h1>
+    <div class="hero-text">Welcome to POOJA BATTRY</div>
     <nav>
       <a href="#home">Home</a>
       <a href="#about">About</a>
@@ -165,3 +163,4 @@
 
 </body>
 </html>
+
