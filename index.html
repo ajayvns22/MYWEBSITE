@@ -30,8 +30,8 @@
     .sidebar-toggle {
       position: fixed;
       top: 10px;
-      left: 10px;
-      background-color: rgba(0, 0, 0, 0.7);
+      left: 5px;
+      background-color: rgba(207, 2, 238, 0.7);
       color: white;
       padding: 10px 15px;
       border: none;
@@ -42,9 +42,9 @@
 
     .sidebar {
       width: 250px;
-      background-color: white;
+      background-color: rgb(193, 119, 119);
       color: black;
-      height: 100%;
+      height: 100vh;
       padding-top: 60px;
       position: absolute;
       left: -250px;
@@ -73,10 +73,8 @@
     }
 
     .main-content {
-      margin-left: 0;
       padding-top: 80px;
       width: 100%;
-      transition: margin-left 0.3s ease;
     }
 
     header {
@@ -94,7 +92,7 @@
       color: #fff;
       display: inline-block;
       padding: 10px 20px;
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(184, 8, 8, 0.5);
       border-radius: 10px;
       white-space: nowrap;
     }
@@ -102,7 +100,7 @@
     section {
       padding: 20px;
       text-align: left;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(223, 13, 13, 0.5);
       margin: 10px;
       border-radius: 10px;
     }
@@ -147,6 +145,42 @@
       cursor: pointer;
     }
 
+    .battery-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .battery-item {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 250px;
+    }
+
+    .battery-item img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+
+    .battery-item p {
+      margin: 10px 0 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .battery-item a {
+      text-decoration: none;
+      color: #007BFF;
+      font-weight: bold;
+    }
+
+    .battery-item a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 768px) {
       .hero-text {
         font-size: 1.5rem;
@@ -172,13 +206,11 @@
 
   <div class="sidebar" id="sidebar">
     <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#blog">Blog</a>
-      <a href="#contact">Contact</a>
-      <a href="#batteries">Batteries</a>
-      <a href="#services">Services</a>
-      <a href="#faq">FAQ</a>
+      <a href="#home" onclick="toggleSidebar()">Home</a>
+      <a href="#about" onclick="toggleSidebar()">About</a>
+      <a href="#blog" onclick="toggleSidebar()">Blog</a>
+      <a href="#contact" onclick="toggleSidebar()">Contact</a>
+      <a href="#batteries" onclick="toggleSidebar()">Batteries</a>
     </nav>
   </div>
 
@@ -199,21 +231,33 @@
       </section>
 
       <section id="blog">
-        <h2>Our Blog</h2>
+        <h2> Blog</h2>
         <p>Stay updated with battery maintenance tips, new product launches, and energy solutions.</p>
-        <div style="text-align: left; max-width: 800px; margin: 0 auto;">
-          <h3>🔋 How to Choose the Right Inverter Battery</h3>
-          <p>Choosing the right battery depends on your power requirement, inverter compatibility, and budget. At my shop, we help you make informed decisions with our expert advice.</p>
+      </section>
 
-          <h3>⚙️ Tips for Long Battery Life</h3>
-          <ul>
-            <li>Use the battery regularly and avoid deep discharge.</li>
-            <li>Top-up distilled water regularly in tubular batteries.</li>
-            <li>Ensure proper ventilation around the inverter system.</li>
-          </ul>
-
-          <h3>🌿 Eco-Friendly Disposal</h3>
-          <p>Did you know old batteries can be recycled? Bring your used batteries to us, and we’ll handle safe, eco-friendly disposal.</p>
+      <section id="batteries">
+        <h2>Our Battery Range</h2>
+        <div class="battery-gallery">
+          <div class="battery-item">
+            <img src="https://m.media-amazon.com/images/I/71pVKH+Xc5L._SL1500_.jpg" alt="Exide IT500 150Ah Tall Tubular Battery">
+            <p>Exide IT500 150Ah Tall Tubular Battery</p>
+            <a href="https://www.amazon.in/ExideS-500-Tall-Tubular-Battery/dp/B072KXZS5K" target="_blank">View Details</a>
+          </div>
+          <div class="battery-item">
+            <img src="https://winmin.in/wp-content/uploads/2021/06/Exide-Insta-Brite-IB1350-135AH-Battery.jpg" alt="Exide Insta Brite IB1350 135Ah Battery">
+            <p>Exide Insta Brite IB1350 135Ah Battery</p>
+            <a href="https://winmin.in/product/exide-insta-brite-ib1350-135ah-battery/" target="_blank">View Details</a>
+          </div>
+          <div class="battery-item">
+            <img src="https://jkbatteryshop.com/wp-content/uploads/2020/01/Exide-Inva-Master-IMTT1500.jpg" alt="Exide Inva Master IMTT1500 150Ah Tall Tubular Battery">
+            <p>Exide Inva Master IMTT1500 150Ah</p>
+            <a href="https://jkbatteryshop.com/product/exide-inva-master-imtt1500150ah-tall-tubular-battery/" target="_blank">View Details</a>
+          </div>
+          <div class="battery-item">
+            <img src="https://www.tayna.co.uk/images/Exide-EP650.jpg" alt="Exide EP650 DUAL AGM Leisure Marine Battery">
+            <p>Exide EP650 DUAL AGM Marine Battery</p>
+            <a href="https://www.tayna.co.uk/leisure-batteries/exide/ep650/" target="_blank">View Details</a>
+          </div>
         </div>
       </section>
 
@@ -228,10 +272,10 @@
         </div>
 
         <h3>Request a Callback</h3>
-        <form action="#" method="post">
-          <input type="text" placeholder="Your Name" required>
-          <input type="tel" placeholder="Your Phone Number" required>
-          <textarea placeholder="Your Message" rows="4"></textarea>
+        <form action="mailto:pooja@batterycare.com" method="post" enctype="text/plain">
+          <input type="text" name="Name" placeholder="Your Name" required>
+          <input type="tel" name="Phone" placeholder="Your Phone Number" required>
+          <textarea name="Message" placeholder="Your Message" rows="4"></textarea>
           <button type="submit">Submit</button>
         </form>
       </section>
@@ -244,7 +288,8 @@
 
   <script>
     function toggleSidebar() {
-      document.getElementById('sidebar').classList.toggle('show');
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('show');
     }
   </script>
 </body>
